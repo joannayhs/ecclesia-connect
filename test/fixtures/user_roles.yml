@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  role_id: 1
+  assigner: 1
+  date_assigned: 2019-10-10 19:53:27
+
+two:
+  user_id: 1
+  role_id: 1
+  assigner: 1
+  date_assigned: 2019-10-10 19:53:27

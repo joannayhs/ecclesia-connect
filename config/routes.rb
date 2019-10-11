@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :roles
+  resources :users
   get 'session/create'
   get 'session/destory'
   root 'welcome#home'
