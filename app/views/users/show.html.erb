@@ -1,4 +1,21 @@
 
 <h1>Welcome, <%= @user.name %></h1>
 
+<h2>Upcoming Roles:</h2> 
+<table>
+<tr>
+<th>Date</th>
+<th>Role</th> 
+<th>Arrival Time</th>
+</tr> 
+
+<tr>
+    <% @user.roles.each do |role| %>
+    <td><%= role.date %></td>
+    <td><%= role.title %></td>
+    <td><%= role.arrival_time %></td>
+    <%end%>
+
+<tr> 
+</table> 
 <%= link_to "Log Out", logout_path, method: :post %>

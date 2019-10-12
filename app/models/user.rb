@@ -7,4 +7,7 @@ class User < ApplicationRecord
     validates :name, presence: true 
     validates :email, presence:true, uniqueness: true, format: EMAIL_REGEX
     validates :password, length: {in: 6..20}
+
+  
+  
 end
