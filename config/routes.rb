@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :roles
   resources :users
+  resources :teams
   get '/login', to: 'session#new'
   post '/login', to: 'session#create'
   get '/auth/facebook/callback', to: 'session#create'

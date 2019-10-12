@@ -1,0 +1,26 @@
+<%= form_for @team do |f| %>
+
+<%= f.label :name %><br>
+<%= f.text_field :name%><br> 
+<br> 
+<%= f.label :description %><br>
+<%= f.text_field :description %><br>
+<br> 
+
+Add Role: <br> 
+<br>
+<%= f.fields_for :role do |role| %>
+
+<%= role.label :title %><br>
+<%= role.text_field :title %><br> 
+<br>
+<%= role.label :description %><br>
+<%= role.text_field :description %><br>
+<br> 
+<%= role.label :arrival_time %><br>
+<%= role.datetime_select :arrival_time %><br>
+<br> 
+<%end %>
+
+<%= f.submit "Add Team" %>
+<% end %>
