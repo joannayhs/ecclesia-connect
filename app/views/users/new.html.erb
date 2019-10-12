@@ -1,0 +1,29 @@
+<h1> New here?</h1>
+
+<h2>Sign Up with email:</h2>
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+<% @user.errors.full_messages.each do |m| %>
+<%= m %>
+<% end %>
+</div>
+<% end %>
+
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+
+<%= f.label :email %><br>
+<%= f.text_field :email %><br>
+
+<%= f.label :password %><br>
+<%= f.password_field :password %><br>
+<br>
+<%= f.submit "Sign Up"%>
+
+<% end %>
+
+<h1>  OR </h1>
+
+<h2> Sign Up with Facebook </h2>
+
