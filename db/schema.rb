@@ -15,9 +15,8 @@ ActiveRecord::Schema.define(version: 2019_10_12_202007) do
   create_table "roles", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "date"
-    t.datetime "arrival_time"
-    t.boolean "confirmed"
+    t.string "arrival_time"
+    t.boolean "confirmed", default: false
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,7 +43,6 @@ ActiveRecord::Schema.define(version: 2019_10_12_202007) do
     t.string "email"
     t.string "password_digest"
     t.boolean "admin", default: false
-    t.integer "team_id"
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

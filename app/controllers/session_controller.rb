@@ -1,6 +1,5 @@
 class SessionController < ApplicationController
   def new 
-    render 'welcome/home'
   end 
   
   def create

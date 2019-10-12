@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
   def home
-    user = User.new
+    if logged_in?
+      redirect_to user_path(current_user.id)
+    end
   end
 end

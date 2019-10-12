@@ -7,9 +7,9 @@
 <%= f.text_field :description %><br>
 <br> 
 
-Add Role: <br> 
+Add Role to Team: <br> 
 <br>
-<%= f.fields_for :role do |role| %>
+<%= f.fields_for :roles do |role| %>
 
 <%= role.label :title %><br>
 <%= role.text_field :title %><br> 
@@ -18,7 +18,7 @@ Add Role: <br>
 <%= role.text_field :description %><br>
 <br> 
 <%= role.label :arrival_time %><br>
-<%= role.datetime_select :arrival_time %><br>
+<%= role.text_field :arrival_time %><br>
 <br> 
 <%end %>
 
