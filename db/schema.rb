@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_10_10_235327) do
     t.string "password_digest"
     t.boolean "admin", default: false
     t.integer "team_id"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
