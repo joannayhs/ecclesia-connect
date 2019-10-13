@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-
+      before_action :authenticate
     def index  
         @teams = Team.all
     end 

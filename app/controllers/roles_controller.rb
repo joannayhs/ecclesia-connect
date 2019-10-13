@@ -1,5 +1,5 @@
 class RolesController < ApplicationController
-
+  before_action :authenticate 
 def index 
     @roles = Role.all
 end 
