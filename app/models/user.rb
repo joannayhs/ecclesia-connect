@@ -12,5 +12,13 @@ class User < ApplicationRecord
     def admin?
         self.admin
     end
+
+    def self.from_oauth(auth)
+        User.find_or_create_by(uid: auth[:uid]) do |u|
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            u.password = SecureRandom.urlsafe_base64(n=6) 
+        end 
+    end 
   
 end

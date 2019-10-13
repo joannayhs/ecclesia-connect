@@ -1,3 +1,6 @@
+Creates a new team 
+Adds roles to that team
+
 <%= form_for @team do |f| %>
 <%= f.label :name %><br>
 <%= f.text_field :name %><br>
@@ -5,7 +8,6 @@
 <%= f.label :description %><br>
 <%= f.text_field :description %><br>
 <br>
-<%= f.label :roles %>
 Select from the roles below: <br>
 <%= f.fields_for :roles do |role| %>
 <%= role.collection_check_boxes :role, Role.all, :id, :title %><br>

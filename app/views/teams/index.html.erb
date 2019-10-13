@@ -1,3 +1,6 @@
+Shows all the teams 
+Links to the team show page 
+
 <% @teams.each do |t| %>
 <%= link_to t.name, team_path(t.id) %><br>
 <%= t.description %><br>

@@ -12,16 +12,21 @@
 <% end %>
 </div>
 <% end %>
+<div class="field <%= 'field_with_errors' if @user.errors[:name].any? %>">
+<%= f.label :name %>
+<%= f.text_field :name %>
+</div>
 
-<%= f.label :name %><br>
-<%= f.text_field :name %><br>
+<div class="field <%= 'field_with_errors' if @user.errors[:email].any? %>">
+<%= f.label :email %>
+<%= f.text_field :email %>
+</div>
 
-<%= f.label :email %><br>
-<%= f.text_field :email %><br>
+<div class="field <%= 'field_with_errors' if @user.errors[:password].any? %>">
+<%= f.label :password %>
+<%= f.password_field :password %>
+</div>
 
-<%= f.label :password %><br>
-<%= f.password_field :password %><br>
-<br>
 <%= f.submit "Sign Up"%>
 
 <% end %>
