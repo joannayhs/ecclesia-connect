@@ -7,17 +7,7 @@
 <%= f.text_field :description %><br>
 <br> 
 <%= f.label :arrival_time %><br>
-<%= f.datetime_select :arrival_time %><br>
-<br> 
-<%= f.label "Team"%><br>
-<%- f.collection_select :team, Team.all, :id, :name %>
-<% if Team.all.empty? %>
-<%= f.fields_for :team do |team| %>
-Add team: <br>
-Team Name: <%= team.text_field :name %><br>
-Team Description: <%= team.text_field :description %><br>
-<%end%>
-<%end%>
+<%= f.text_field :arrival_time %><br>
 <br>
 <%= f.submit "Add Role"%>
 <% end %>

@@ -1,26 +1,13 @@
 <%= form_for @team do |f| %>
-
 <%= f.label :name %><br>
-<%= f.text_field :name%><br> 
-<br> 
+<%= f.text_field :name %><br>
+<br>
 <%= f.label :description %><br>
 <%= f.text_field :description %><br>
-<br> 
-
-Add Role to Team: <br> 
 <br>
-<%= f.fields_for :roles do |role| %>
-
-<%= role.label :title %><br>
-<%= role.text_field :title %><br> 
-<br>
-<%= role.label :description %><br>
-<%= role.text_field :description %><br>
-<br> 
-<%= role.label :arrival_time %><br>
-<%= role.text_field :arrival_time %><br>
-<br> 
-<%end %>
-
-<%= f.submit "Add Team" %>
+<%= f.label :roles %>
+<%= fields_for :roles do |role| %>
+<%= role.collection_check_boxes :team, :role_ids, Role.all, :id, :title%>
 <% end %>
+<%= f.submit "Add Team" %>
+<%end %>

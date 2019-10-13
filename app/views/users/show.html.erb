@@ -12,7 +12,7 @@
 <tr>
     <% @user.roles.each do |role| %>
     <td><%= role.date %></td>
-    <td><%= role.title %></td>
+    <td><%= link_to role.title, role_path(role.id) %></td>
     <td><%= role.arrival_time %></td>
     <%end%>
 

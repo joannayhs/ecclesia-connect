@@ -1,23 +1,27 @@
 class TeamsController < ApplicationController
-    
-    def index 
+
+    def index  
+        @teams = Team.all
     end 
 
     def new 
-        @team = Team.new
-        @team.roles.build
+        @team = Team.new 
     end 
 
-    def create
-        @team = Team.create(team_params)
-        raise params.inspect
+    def create 
+        @team = Team.create(team_params) 
+        redirect_to team_path(@team)
+    end 
+
+    def show
+        @team = Team.find(params[:id])
     end 
 
     private 
-
-    def team_params
-        params.require(:team).permit(:name, :description, :roles_attributes[:title, :description, :arrival_time] )
+    
+    def team_params 
+        params.require(:team).permit(:name, :description, :role_ids[:id, :title])
     end 
-end
 
+end
 

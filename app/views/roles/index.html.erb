@@ -1,4 +1,4 @@
 <% @roles.each do |role| %>
-<%= role.title %><br>
+<%= link_to role.title, role_path(role.id) %><br>
 <%= role.description %><br> 
 <% end %>
