@@ -6,9 +6,9 @@
 <h2>Sign Up with email:</h2>
 <%= form_for @user do |f| %>
 <% if @user.errors.any? %>
-<div id="error_explanation">
+<div class="danger">
 <% @user.errors.full_messages.each do |m| %>
-<%= m %>
+<%= m %><br>
 <% end %>
 </div>
 <% end %>

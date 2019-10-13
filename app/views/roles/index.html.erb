@@ -1,5 +1,5 @@
-Shows all of the roles
-Has link to the show page 
+<%# Shows all of the roles
+Has link to the show page  %>
 
 <% @roles.each do |role| %>
 <%= link_to role.title, role_path(role.id) %><br>
