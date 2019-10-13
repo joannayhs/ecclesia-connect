@@ -7,8 +7,8 @@
 <br>
 <%= f.label :roles %>
 Select from the roles below: <br>
-<%= fields_for :roles do |role| %>
-<%= role.collection_check_boxes :role_ids, Role.all, :id, :title %><br>
+<%= f.fields_for :roles do |role| %>
+<%= role.collection_check_boxes :role, Role.all, :id, :title %><br>
 <br>
 Or add a new role: <br>
 <%= role.label :title %><br>

@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
 
     def new 
         @team = Team.new 
+        @team.roles.build
     end 
 
     def create 

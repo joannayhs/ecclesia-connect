@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
         !!session[:user_id]
     end 
 
+    def login(user)
+        session[:user_id] = user.id
+        redirect_to user_path(user.id)
+    end 
+
 end
