@@ -1,0 +1,13 @@
+
+<%= @team.name %><br>
+<%= @team.description %>
+<% @team.roles.each do |role| %>
+<ul>
+<li> <%= link_to role.title, role_path(role.id) %></li>
+</ul>
+<%end%>
+<% @team.users.each do |user| %>
+<ul>
+<li><%= user.name %></li>
+</ul>
+<%end%>
