@@ -3,29 +3,27 @@ Adds roles to that team %>
 
 <%= form_for @team do |f| %> 
 <%= f.label :name %><br>
-<%= f.text_field :name %><br> <%#params[:team][:name] %>
+<%= f.text_field :name %><br> 
 
 <br>
 <%= f.label :description %><br>
-<%= f.text_field :description %><br><%#params[:team][:description]%>
+<%= f.text_field :description %><br>
 <br>
 Select from the roles below: <br>
-<%= f.fields_for :roles do |role| %>
-<%= role.collection_check_boxes :role_id, Role.all, :id, :title %><br> <%#params[:team][:role_id][:id]%>
+<%= f.collection_check_boxes :role_ids, Role.all, :id, :title %><br> 
 <br>
 Or add a new role: <br>
+<%= f.fields_for :roles, @team.roles.build do |role| %>
 <%= role.label :title %><br>
-<%= role.text_field :title %><br><%#params[:team][:roles_attributes][:title]%>
+<%= role.text_field :title %><br>
 <br> 
 <%= role.label :description %><br>
-<%= role.text_field :description %><br><%#params[:team][:roles_attributes][:description]%>
+<%= role.text_field :description %><br>
 <br> 
 <%= role.label :arrival_time %><br>
-<%= role.text_field :arrival_time %><br><%#params[:team][:roles_attributes][:arrival_time]%>
+<%= role.text_field :arrival_time %><br>
 <% end %>
 
 <br>
-<%= f.submit "Add Team" %> <%#ideally creates a new team, creates new roles with a team id that matches new team%>
+<%= f.submit "Add Team" %> 
 <%end %>
-
-<%# admins are the only ones who can add, edit, or delete teams%>

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     has_many :user_roles
+    has_many :delegated_user_roles, class_name: "UserRole", foreign_key: "assigner_id"
+    # has_many :delegated_roles, class_name: "Role", through: :delegated_user_roles, foreign_key: "role_id"
     has_many :roles, through: :user_roles
     has_many :teams, through: :roles
     has_secure_password 
@@ -19,6 +21,10 @@ class User < ApplicationRecord
             u.email = auth['info']['email']
             u.password = SecureRandom.urlsafe_base64(n=6) 
         end 
+    end 
+
+    def delegated_roles 
+        self.delegated_user_roles.map{|ur| ur.role }
     end 
   
 end

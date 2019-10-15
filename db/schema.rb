@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 2019_10_13_193415) do
   create_table "user_roles", force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
-    t.integer "assigner"
+    t.integer "assigner_id"
     t.datetime "date_assigned"
+    t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -3,4 +3,7 @@ class Role < ApplicationRecord
     has_many :users, through: :user_roles
     belongs_to :team
 
+    accepts_nested_attributes_for :user_roles
+    accepts_nested_attributes_for :team
+
 end

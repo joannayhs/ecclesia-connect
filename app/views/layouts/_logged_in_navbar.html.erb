@@ -1,3 +1,4 @@
 <%= button_to "Log Out", '/logout', method: :delete %>
+<%= link_to "Profile", user_path(current_user)%>
 <%= link_to "View Teams", teams_path%>
 <%= link_to "View Roles", roles_path%>
