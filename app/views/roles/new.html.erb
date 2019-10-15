@@ -1,37 +1,5 @@
-
-<%# Creates a new role
-Has option to assign the role to a user for a specific date
-    Adds this information to the user_roles table %>
-
-<%= form_for @role do |f| %>
-
-<%= f.label :title %><br>
-<%= f.text_field :title%><br> 
-<br> 
-<%= f.label :description %><br>
-<%= f.text_field :description %><br>
-<br> 
-<%= f.label :arrival_time %><br>
-<%= f.text_field :arrival_time %><br>
-Select Team: 
-<%= f.collection_select :team_id, Team.all, :id, :name %>
-Or Add Team: 
-<%= f.fields_for :team, @role.team do |t| %>
-<%= t.label :name %>
-<%= t.text_field :name %>
-
-<%= t.label :description %>
-<%= t.text_field :description %>
-<% end %>
-<br>
-Assign User: 
-<%= f.fields_for :user_role, @role.user_roles.build do |ur| %>
-<%= ur.collection_select :user_id, User.all, :id, :name%>
-<%= ur.date_select :date_assigned, order: [:month, :day, :year]%>
-<%= ur.hidden_field :assigner_id, value: current_user%>
-<% end %>
+<%= form_for @role do |f|%>
+<%= role_form%>
+<%= assign_role %>
 <%= f.submit "Add Role"%>
-<% end %>
-
-<%# admins can assign roles to users %>
-<%# users can add roles for themselves %>
+<%end%>

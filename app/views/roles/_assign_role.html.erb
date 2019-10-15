@@ -1,6 +1,9 @@
+Assign Role
 <%= form_for :user_role do |f|  %>
 <%= f.collection_select :user_id, User.all, :id, :name%>
-<%= f.date_select :date_assigned, order: [:month, :day, :year]%>
-<%= f.hidden_field :assigner_id, value: current_user%>
+<%= f.fields_for :user_roles do |ur| %>
+<%= ur.date_select :date_assigned, order: [:month, :day, :year]%>
+<%= ur.hidden_field :assigner_id, value: current_user%>
+<%end%>
 <%= f.submit "Assign Role"%>
 <% end %>

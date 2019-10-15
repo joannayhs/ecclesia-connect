@@ -1,0 +1,20 @@
+
+<%= f.label :title %><br>
+<%= f.text_field :title%><br> 
+<br> 
+<%= f.label :description %><br>
+<%= f.text_field :description %><br>
+<br> 
+<%= f.label :arrival_time %><br>
+<%= f.text_field :arrival_time %><br>
+Select Team: 
+<%= f.collection_select :team_id, Team.all, :id, :name %>
+Or Add Team: 
+<%= f.fields_for :team, @role.team do |t| %>
+
+<%= t.label :name %>
+<%= t.text_field :name %>
+
+<%= t.label :description %>
+<%= t.text_field :description %>
+<% end %>
