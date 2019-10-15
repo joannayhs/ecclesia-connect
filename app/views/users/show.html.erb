@@ -15,7 +15,7 @@
     <td><%= role.date_assigned %></td>
     <td><%= link_to role.role.title, role_path(role.id) %></td>
     <td><%= role.role.arrival_time %></td>
-    <td><%= link_to "Edit", edit_user_role_path %>
+    <td><%= link_to "Edit", edit_user_role_path(@user) %>
     <%end%>
 
 <tr> 

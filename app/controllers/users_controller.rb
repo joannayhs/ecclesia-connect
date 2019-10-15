@@ -15,8 +15,8 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        if !User.find(params[:id]).nil?
-            @user = User.find(params[:id])
+        if !current_user.nil?
+            get_user
         else 
             redirect_to new_user_path
         end  
@@ -28,5 +28,9 @@ class UsersController < ApplicationController
     def user_params 
         params.require(:user).permit(:name, :email, :password, :uid)
     end
+    
+    def get_user 
+        @user = current_user
+    end 
 
 end

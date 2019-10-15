@@ -15,13 +15,29 @@ class TeamsController < ApplicationController
     end 
 
     def show
-        @team = Team.find(params[:id])
+        get_team
+    end 
+
+    def edit 
+        get_team
+    end 
+
+    def update
+        get_team
+    end 
+     
+    def  destroy
+        get_team
     end 
 
     private 
     
     def team_params 
         params.require(:team).permit(:name, :description, role_ids:[], roles_attributes: [:title, :description, :arrival_time])
+    end 
+
+    def get_team 
+        @team = Team.find_by(:id params[:id)])
     end 
 
 end

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :teams
   resources :roles
-  resources :users, except: [:new]
+  resources :users, except: [:new] do  
+    resources :roles, only: [:index, :show, :edit]
+  end 
   get '/login', to: 'session#new', as: '/login'
   post '/login', to: 'session#create'
   get '/signup', to: 'users#new', as: '/signup'

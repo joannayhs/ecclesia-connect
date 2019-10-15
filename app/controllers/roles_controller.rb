@@ -14,17 +14,19 @@ def create
 end 
 
 def show 
-    @role = Role.find_by(id: params[:id])
+    get_role
 end 
 
 def edit
+    get_role
 end 
 
 def update
+    get_role
 end 
 
 def destroy
-    @role = Role.find_by(id: params[:id])
+    get_role
     @role.destroy
     redirect_to roles_path
 end 
@@ -34,4 +36,7 @@ def role_params
     params.require(:role).permit(:title, :description, :arrival_time, :team_id)
 end 
 
+def get_role
+    @role = Role.find_by(id: params[:id])
+end
 end
