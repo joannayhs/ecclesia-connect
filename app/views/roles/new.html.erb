@@ -25,7 +25,7 @@ Or Add Team:
 <% end %>
 <br>
 Assign User: 
-<%= f.fields_for :user_roles, @role.user_roles.build do |ur| %>
+<%= f.fields_for :user_role, @role.user_roles.build do |ur| %>
 <%= ur.collection_select :user_id, User.all, :id, :name%>
 <%= ur.date_select :date_assigned, order: [:month, :day, :year]%>
 <%= ur.hidden_field :assigner_id, value: current_user%>

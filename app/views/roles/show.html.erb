@@ -3,12 +3,7 @@
 <%= link_to @role.team.name, team_path(@role.team) %><br>
 
 Assign Role:  
-<%= form_for :user_role @role.user_roles do |f|  %>
-<%= f.collection_select :user_id, User.all, :id, :name%>
-<%= f.date_select :date_assigned, order: [:month, :day, :year]%>
-<%= f.hidden_field :assigner_id, value: current_user%>
-<%= f.submit "Assign Role"%>
-<% end %>
+<%= assign_role %>
 
 
 <%# Button for editing role 
