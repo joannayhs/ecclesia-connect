@@ -3,9 +3,9 @@ class CreateRoles < ActiveRecord::Migration[5.2]
     create_table :roles do |t|
       t.string :title
       t.text :description
-      t.string :arrival_time
+      t.datetime :arrival_time
       t.integer :team_id
-
+      t.integer :min_users, default: 1
       t.timestamps
     end
   end

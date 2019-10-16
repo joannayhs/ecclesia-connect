@@ -33,7 +33,7 @@ end
 
 private 
 def role_params 
-    params.require(:role).permit(:title, :description, :arrival_time, :team_id)
+    params.require(:role).permit(:title, :description, :arrival_time, :team_id, :team)
 end 
 
 def get_role

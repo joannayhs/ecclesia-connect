@@ -1,20 +1,33 @@
 
+<%= form_for @role do |f| %>
+<%= f.label :arrival_time%>
+<%= f.datetime_select :arrival_time %>
+<br/>
 <%= f.label :title %><br>
+Choose from below: <br>
+<%= f.collection_select :title, Role.all, :id, :title, include_blank: true %><br>
+Or create a new title:  <br>
 <%= f.text_field :title%><br> 
 <br> 
 <%= f.label :description %><br>
+Choose from below: <br>
+<%= f.collection_select :title, Role.all, :id, :description, include_blank: true %><br>
+Or add a new description: <br>
 <%= f.text_field :description %><br>
 <br> 
-<%= f.label :arrival_time %><br>
-<%= f.text_field :arrival_time %><br>
-Select Team: 
-<%= f.collection_select :team_id, Team.all, :id, :name %>
-Or Add Team: 
-<%= f.fields_for :team, @role.team do |t| %>
+Which team does it belong to? <br>
+Choose from below:<br>
+<%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %><br>
+Or Add Team: <br>
+<%= f.fields_for :team, @role.team.build do |t| %>
 
 <%= t.label :name %>
 <%= t.text_field :name %>
-
+<br/>
 <%= t.label :description %>
 <%= t.text_field :description %>
+<br/>
 <% end %>
+
+<%= f.submit "Add Role"%>
+<%end%>

@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 2019_10_13_193415) do
   create_table "roles", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "arrival_time"
-    t.boolean "confirmed", default: false
+    t.datetime "arrival_time"
     t.integer "team_id"
+    t.integer "min_users", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2019_10_13_193415) do
     t.integer "user_id"
     t.integer "role_id"
     t.integer "assigner_id"
-    t.datetime "date_assigned"
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

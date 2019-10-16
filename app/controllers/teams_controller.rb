@@ -37,7 +37,7 @@ class TeamsController < ApplicationController
     end 
 
     def get_team 
-        @team = Team.find_by(:id params[:id)])
+        @team = Team.find(params[:id])
     end 
 
 end
