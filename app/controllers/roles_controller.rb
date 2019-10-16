@@ -23,6 +23,12 @@ end
 
 def update
     get_role
+    if @role.update(role_params)
+        redirect_to role_path(@role)
+    else 
+        render :edit 
+        flash[:danger] = "There were some errors"
+    end 
 end 
 
 def destroy

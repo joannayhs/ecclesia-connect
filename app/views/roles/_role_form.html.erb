@@ -10,24 +10,11 @@ Or create a new title:  <br>
 <%= f.text_field :title%><br> 
 <br> 
 <%= f.label :description %><br>
-Choose from below: <br>
-<%= f.collection_select :title, Role.all, :id, :description, include_blank: true %><br>
-Or add a new description: <br>
 <%= f.text_field :description %><br>
 <br> 
 Which team does it belong to? <br>
 Choose from below:<br>
-<%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %><br>
-Or Add Team: <br>
-<%= f.fields_for :team, @role.team.build do |t| %>
-
-<%= t.label :name %>
-<%= t.text_field :name %>
-<br/>
-<%= t.label :description %>
-<%= t.text_field :description %>
-<br/>
-<% end %>
+<%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true%><br>
 
 <%= f.submit "Add Role"%>
 <%end%>
