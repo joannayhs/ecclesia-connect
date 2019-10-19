@@ -26,6 +26,10 @@ end
 
 def show 
     get_role
+    if !params["User"].blank?
+        @user = User.find_by(id: params["id"])
+        render :show
+    end
 end 
 
 def edit
