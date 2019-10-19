@@ -1,14 +1,35 @@
 
+<table>
+<tr>
+<th>Team Name</th>
+<th>Team Description</th>
+<th>Team Roles</th>
+<th>Team Members</th>
+<th>Add Role to Team</th>
+<th>Edit Team</th>
+<th>Delete Team</th>
+</tr>
 
-<h1><%= @team.name %></h1><br>
-<%= @team.description %><br>
+<tr>
+<td><%= @team.name %></td>
+<td><%= @team.description %></td>
+<td>
 <% @team.roles.each do |role| %>
-<%= link_to role.title, team_role_path(@team, role) %><br>
+<ul>
+<li><%= link_to role.title, team_role_path(@team, role) %></li>
+</ul>
 <%end%>
+</td>
+<td>
 <% @team.users.each do |user| %>
-<%= user.name %><br>
+<ul>
+<li><%= link_to user.name, profile_path(user) %></li>
+</ul>
 <%end%>
+</td>
 
-<%= link_to "Add Role", new_team_role_path(@team)%>
-
-<%= button_to "Delete Team", team_path(@team), method: :delete %>
+<td><%= link_to "Add Role", new_team_role_path(@team)%></td>
+<td><%= link_to "Edit",  edit_team_path(@team) %></td>
+<td><%= button_to "Delete Team", team_path(@team), method: :delete %></td>
+</tr>
+</table>

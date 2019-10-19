@@ -1,12 +1,24 @@
-<%= @role.arrival_time %><br>
+<table>
+<tr>
+<th>Arrival Time</th>
+<th>Title</th>
+<th>Description</th>
+<th>Users</th>
+<th>Edit</th>
+<th>Delete</th>
+<th>Assign Role</th>
+</tr>
 
-<%= @role.title %><br>
-<%= @role.description%><br>
-<%= link_to @role.team.name, team_path(@role.team) %><br>
+<tr>
+<td><%= @role.arrival_time %></td>
+<td><%= @role.title %></td>
+<td><%= @role.description%><br></td>
+<td><%= link_to @role.team.name, team_path(@role.team) %></td>
 <% @role.users.each do |u| %>
-<%= u.name %>
+<td><%= u.name %></td>
 <%end %>
-
-<%= assign_role %>
-<%= link_to "Edit Role", edit_role_path(@role)%>
-<%= button_to "Delete Role", role_path(@role), method: :delete %>
+<td><%= link_to "Edit Role", edit_role_path(@role)%></td>
+<td><%= button_to "Delete Role", role_path(@role), method: :delete %></td>
+<td><%=  assign_role %>
+</tr>
+</table>

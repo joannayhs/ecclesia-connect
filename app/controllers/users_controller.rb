@@ -14,14 +14,13 @@ class UsersController < ApplicationController
         end 
     end 
 
-    def show 
-        
-        if !current_user.nil?
-            get_user
-        else 
-            redirect_to new_user_path
-        end  
+    def  profile 
+        @user = current_user
+        render :show
+    end 
 
+    def show 
+        @user = User.find_by(id: params[:id])
     end 
 
     private 
@@ -29,9 +28,5 @@ class UsersController < ApplicationController
     def user_params 
         params.require(:user).permit(:name, :email, :password, :uid)
     end
-    
-    def get_user 
-        @user = current_user
-    end 
-
+ 
 end

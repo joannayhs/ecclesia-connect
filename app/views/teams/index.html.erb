@@ -1,8 +1,15 @@
+<table>
+<tr>
+<th>Team Name</th>
+<th>Team Description</th>
+</tr>
 
 <% @teams.each do |t| %>
-<%= link_to t.name, team_path(t.id) %><br>
-<%= t.description %><br>
-<br>
+<tr>
+<td><%= link_to t.name, team_path(t.id) %></td>
+<td><%= t.description %></td>
+</tr>
 <%end%>
 
+</table>
 <%= link_to "Create a New Team", new_team_path if current_user.admin? %>
