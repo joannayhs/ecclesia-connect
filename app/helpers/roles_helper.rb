@@ -12,9 +12,6 @@ module RolesHelper
         end
     end 
 
-    def confirm
-        if @role.users.include?(current_user)
-            render 'roles/confirm_checkbox'
-        end 
-    end 
+  
+
 end
