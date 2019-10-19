@@ -1,16 +1,12 @@
-<%# Shows the team information 
-Shows the roles that belong to that team  
-Shows the users who are part of the team
-Has a link to add a role to the team 
-Has a button to edit the team 
-Has a button to delete the team 
- %>
+
 
 <h1><%= @team.name %></h1><br>
-<%= @team.description %>
+<%= @team.description %><br>
 <% @team.roles.each do |role| %>
 <%= link_to role.title, role_path(role) %>
 <%end%>
 <% @team.users.each do |user| %>
 <%= user.name %>
 <%end%>
+
+<%= button_to "Delete Team", team_path(@team), method: :delete %>

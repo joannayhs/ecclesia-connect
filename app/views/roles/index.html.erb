@@ -1,4 +1,9 @@
-<%= form_tag %>
+Filter Roles: 
+<%= form_tag('/roles', method: 'get')  do %>
+<%= select_tag "Team",  options_from_collection_for_select(@teams, "id", "name"), include_blank: true%>
+<%= select_tag "Availability", options_for_select(["Filled Roles", "Open Roles"]), include_blank: true %>
+<%= submit_tag "Filter Roles" %>
+<%end%>
 
 <% @roles.each do |role| %>
 <%= link_to role.title, role_path(role.id) %><br>

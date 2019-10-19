@@ -10,5 +10,15 @@ class Role < ApplicationRecord
         self.users.include?(user)
     end
 
+    def  self.by_team(team)
+        where(team_id: team)
+    end 
+
+    def self.available
+        where(confirmed: false)
+    end  
     
+    def self.unavailable
+        where(confirmed: true)
+    end 
 end

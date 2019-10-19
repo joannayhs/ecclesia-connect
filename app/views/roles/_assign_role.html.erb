@@ -1,7 +1,8 @@
 Assign Role
 <%= form_for @role do |f|  %>
-<%= f.label :user %>
-<%= f.collection_select :user_ids, User.all, :id, :name %>
-<%= f.hidden_field :assigner_id, value: current_user%>
+<%= f.fields_for :user_roles do |ur| %>
+<%= ur.collection_select :user_id, User.all, :id, :name %>
+<%= ur.hidden_field :assigner_id, value: current_user%>
+<%end%>
 <%= f.submit "Assign Role"%>
 <% end %>

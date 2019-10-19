@@ -26,8 +26,10 @@ class TeamsController < ApplicationController
         get_team
     end 
      
-    def  destroy
+    def destroy
         get_team
+        @team.destroy if @team.authorize(current_user)
+        redirect_to teams_path
     end 
 
     private 

@@ -17,4 +17,4 @@ band.save
 leadership = Team.create(name: "Leadership", description: "Main leadership in the church")
 leadership.roles.build(title: "Pastor", description: "pastors church and gives sermon most Sundays", arrival_time: Time.now)
 leadership.save
-UserRole.create(user_id: 2, role_id: 3, assigner_id: 2
+UserRole.create(user_id: 2, role_id: 3, assigner_id: 2)
