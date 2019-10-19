@@ -1,0 +1,26 @@
+<%= form_for @team do |f| %> 
+<%= f.label :name %><br>
+<%= f.text_field :name %><br> 
+
+
+<%= f.label :description %>
+<%= f.text_field :description %>
+
+Select from the roles below: 
+<%= f.collection_check_boxes :role_ids, Role.all, :id, :title %>
+
+Or add a new role: 
+<%= f.fields_for :roles, @team.roles.build do |role| %>
+<%= role.label :title %>
+<%= role.text_field :title %>
+
+<%= role.label :description %>
+<%= role.text_field :description %>
+
+<%= role.label :arrival_time %>
+<%= role.datetime_select :arrival_time %>
+<% end %>
+
+<br>
+<%= f.submit "Add Team" %> 
+<%end %>

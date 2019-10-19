@@ -7,3 +7,4 @@ Links to the team show page  %>
 <br>
 <%end%>
 
+<%= link_to "Create a New Team", new_team_path if current_user.admin? %>

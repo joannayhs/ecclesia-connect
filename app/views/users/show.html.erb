@@ -5,21 +5,19 @@
 <table>
 <tr>
 <th>Date</th>
-<th>Role</th> 
 <th>Arrival Time</th>
-<th>Edit</th>
+<th>Role</th> 
+<th>Confirm</th>
 </tr> 
 
 <tr>
-    <% @user.user_roles.each do |role| %>
-    <td><%= role.date_assigned %></td>
-    <td><%= link_to role.role.title, role_path(role.id) %></td>
-    <td><%= role.role.arrival_time %></td>
-    <td><%= link_to "Edit", edit_user_role_path(@user) %>
+    <% @user.roles.each do |role| %>
+    <td><%= role.arrival_time.strftime("%B %d, %Y") %></td>
+    <td><%= role.arrival_time.strftime("%I:%M%p") %></td>
+    <td><%= link_to role.title, role_path(role) %></td>
+    <td><%= link_to "Confirm", edit_user_role_path(@user, role) %>
     <%end%>
+    
 
 <tr> 
 </table> 
-
-<%# would like to be able to sort this table by role, team, date, assigned by %>
-<%# users can change the status of their roles to confirm and can change the date in the user_roles %>

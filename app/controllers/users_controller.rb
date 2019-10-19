@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     end 
 
     def show 
+        
         if !current_user.nil?
             get_user
         else 

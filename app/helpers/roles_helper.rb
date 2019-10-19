@@ -8,7 +8,13 @@ module RolesHelper
 
     def role_form
         if current_user.admin? || current_user.roles.include?(self)
-            render  'roles/role_form'
+            render 'roles/role_form'
         end
+    end 
+
+    def confirm
+        if @role.users.include?(current_user)
+            render 'roles/confirm_checkbox'
+        end 
     end 
 end

@@ -27,7 +27,6 @@ def update
         redirect_to role_path(@role)
     else 
         render :edit 
-        flash[:danger] = "There were some errors"
     end 
 end 
 
@@ -39,10 +38,11 @@ end
 
 private 
 def role_params 
-    params.require(:role).permit(:title, :description, :arrival_time, :team_id, :team)
+    params.require(:role).permit(:title, :description, :arrival_time, :team_id, :confirmed, :min_users)
 end 
 
 def get_role
     @role = Role.find_by(id: params[:id])
 end
+
 end
