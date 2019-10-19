@@ -1,10 +1,8 @@
-<%# Shows all of the roles
-Has link to the show page  %>
+<%= form_tag %>
 
 <% @roles.each do |role| %>
 <%= link_to role.title, role_path(role.id) %><br>
 <%= role.description %><br>
-
 <% end %>
 
-<%# eventually would like to be able to sort this page by team %>
+<%= link_to "Add Role", new_role_path%>

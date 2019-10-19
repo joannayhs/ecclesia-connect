@@ -12,5 +12,13 @@ Which team does it belong to? <br>
 Choose from below:<br>
 <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true%><br>
 
+Assign Users to the role:
+<%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
+
+How many people are needed for this role?
+<%= f.number_field :min_users%>
+<%= f.label :confirmed%>
+<%= f.check_box :confirmed, checked: false unless @role.confirmed %>
+
 <%= f.submit "Submit"%>
 <%end%>

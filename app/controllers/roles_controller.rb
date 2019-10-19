@@ -32,7 +32,7 @@ end
 
 def destroy
     get_role
-    @role.destroy
+    @role.destroy if @role.authorize(current_user)
     redirect_to roles_path
 end 
 
