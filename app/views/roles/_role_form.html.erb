@@ -1,4 +1,10 @@
 <%= form_for @role do |f|%>
+<% if @role.errors.any?  %>
+<% @role.errors.full_messages.each do |m| %>
+<%= m %>
+<% end %>
+<% end %>
+
 <div class="field">
 <%= f.label :arrival_time%>
 <%= f.datetime_select :arrival_time %>
