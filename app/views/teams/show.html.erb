@@ -3,10 +3,12 @@
 <h1><%= @team.name %></h1><br>
 <%= @team.description %><br>
 <% @team.roles.each do |role| %>
-<%= link_to role.title, team_role_path(@team, role) %>
+<%= link_to role.title, team_role_path(@team, role) %><br>
 <%end%>
 <% @team.users.each do |user| %>
-<%= user.name %>
+<%= user.name %><br>
 <%end%>
+
+<%= link_to "Add Role", new_team_role_path(@team)%>
 
 <%= button_to "Delete Team", team_path(@team), method: :delete %>

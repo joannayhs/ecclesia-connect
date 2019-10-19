@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :teams  do 
-    resources :roles, only: [:index, :show, :edit, :update, :destroy]
+    resources :roles, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end  
 
   resources :roles

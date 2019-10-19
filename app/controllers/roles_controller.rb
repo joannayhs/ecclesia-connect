@@ -16,10 +16,16 @@ def index
 end 
 
 def new 
-    @role = Role.new
+    if params[:team_id]
+        @role = Role.new(team_id: params[:team_id])
+    else 
+        @role = Role.new 
+    end 
+
 end 
 
 def create
+    
     @role = Role.create(role_params)
     redirect_to role_path(@role)
 end 
