@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   
+    def index 
+        @users = User.all
+    end 
 
     def new
         @user = User.new 
@@ -20,7 +23,11 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        @user = User.find_by(id: params[:id])
+        if current_user.admin?
+            @user = User.find_by(id: params[:id])
+        else 
+            redirect_to profile_path(current_user), alert: "Unauthorized to see this page"
+        end 
     end 
 
     private 

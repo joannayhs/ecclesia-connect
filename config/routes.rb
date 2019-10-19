@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end  
 
   resources :roles
-  resources :users, except: [:new, :show] do  
+  resources :users, except: [:new] do  
     resources :roles, only: [:index, :show, :edit, :update, :destroy]
   end 
 
