@@ -2,16 +2,15 @@ class RolesController < ApplicationController
   before_action :authenticate 
 def index 
     @teams = Team.all
-    if !params[:team].blank?
+    if !params["Team"].blank?
         @roles = Role.by_team(params["Team"])
-    elsif !params[:availability].blank?
-        if params[:availability] == "Filled Roles"
+    elsif !params["Availability"].blank?
+        if params["Availability"] == "Filled Roles"
             @roles = Role.unavailable
         else
             @roles = Role.available
         end
     else
-        raise params.inspect
         @roles = Role.all
     end 
 end 
@@ -41,13 +40,13 @@ end
 
 def destroy
     get_role
-    @role.destroy if @role.authorize(current_user)
+    @role.destroy
     redirect_to roles_path
 end 
 
 private 
 def role_params 
-    params.require(:role).permit(:title, :description, :arrival_time, :team_id, :confirmed, :min_users, user_roles:[:user_id, :assigner_id])
+    params.require(:role).permit(:title, :description, :arrival_time, :team_id, :confirmed, :min_users)
 end 
 
 def get_role

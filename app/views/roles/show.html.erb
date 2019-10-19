@@ -3,14 +3,10 @@
 <%= @role.title %><br>
 <%= @role.description%><br>
 <%= link_to @role.team.name, team_path(@role.team) %><br>
- 
-<% if @role.users.empty?%>
-<%= assign_role %>
-<% else %>
 <% @role.users.each do |u| %>
 <%= u.name %>
 <%end %>
-<%end%>
+
 
 <%= link_to "Edit Role", edit_role_path(@role)%>
 <%= button_to "Delete Role", role_path(@role), method: :delete %>

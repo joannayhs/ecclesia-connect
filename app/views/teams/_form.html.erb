@@ -1,26 +1,47 @@
+
+<% if @team.errors.any?  %>
+<div class="error_messages">
+<%= @team.errors.full_messages.each do |m| %>
+<%= m %>
+<%end %>
+<%end %>
+</div>
 <%= form_for @team do |f| %> 
+
+<div class="field">
 <%= f.label :name %><br>
 <%= f.text_field :name %><br> 
+</div>
 
-
+<div class="field">
 <%= f.label :description %>
 <%= f.text_field :description %>
+</div>
 
 Select from the roles below: 
+<div class="field">
 <%= f.collection_check_boxes :role_ids, Role.all, :id, :title %>
+</div>
 
-Or add a new role: 
+Or add a new role:
 <%= f.fields_for :roles, @team.roles.build do |role| %>
+
+<div class="field">
 <%= role.label :title %>
 <%= role.text_field :title %>
+</div>
 
+<div class="field">
 <%= role.label :description %>
 <%= role.text_field :description %>
+</div>
 
+<div class="field">
 <%= role.label :arrival_time %>
 <%= role.datetime_select :arrival_time %>
+</div>
 <% end %>
 
-<br>
+
 <%= f.submit "Add Team" %> 
 <%end %>

@@ -1,24 +1,39 @@
 <%= form_for @role do |f|%>
+<div class="field">
 <%= f.label :arrival_time%>
 <%= f.datetime_select :arrival_time %>
-<br/>
+</div>
+
+<div class="field">
 <%= f.label :title %><br>
 <%= f.text_field :title%><br> 
-<br> 
+</div>
+
+<div class="field">
 <%= f.label :description %><br>
 <%= f.text_field :description %><br>
-<br> 
+</div>
+
 Which team does it belong to? <br>
-Choose from below:<br>
+Choose from below:
+<div class="field">
 <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true%><br>
+</div>
 
 Assign Users to the role:
+<div class="field">
 <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
+</div>
 
 How many people are needed for this role?
+<div class="field">
 <%= f.number_field :min_users%>
+</div>
+
+<div class="field">
 <%= f.label :confirmed%>
 <%= f.check_box :confirmed, checked: false unless @role.confirmed %>
+</div>
 
 <%= f.submit "Submit"%>
 <%end%>

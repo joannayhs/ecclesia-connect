@@ -10,8 +10,12 @@ class TeamsController < ApplicationController
     end 
 
     def create 
-        @team = Team.create(team_params) 
-        redirect_to team_path(@team)
+        @team = Team.new(team_params) 
+        if @team.save 
+            redirect_to team_path(@team)
+        else 
+            render :new 
+        end 
     end 
 
     def show
@@ -24,11 +28,16 @@ class TeamsController < ApplicationController
 
     def update
         get_team
+        if @team.update(team_params)
+            redirect_to team_path(@team)
+        else 
+            render :edit 
+        end 
     end 
      
     def destroy
         get_team
-        @team.destroy if @team.authorize(current_user)
+        @team.destroy
         redirect_to teams_path
     end 
 

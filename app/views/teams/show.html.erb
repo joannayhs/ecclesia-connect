@@ -3,7 +3,7 @@
 <h1><%= @team.name %></h1><br>
 <%= @team.description %><br>
 <% @team.roles.each do |role| %>
-<%= link_to role.title, role_path(role) %>
+<%= link_to role.title, team_role_path(@team, role) %>
 <%end%>
 <% @team.users.each do |user| %>
 <%= user.name %>
