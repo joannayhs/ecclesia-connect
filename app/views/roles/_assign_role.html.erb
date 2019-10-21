@@ -1,5 +1,5 @@
 <%= form_for :user_roles, url: '/assignrole' , method: :post do |f|  %>
-<%= f.collection_select :user_id, User.all, :id, :name %>
+<%= f.collection_select :user_id, User.all, :id, :name %><br>
 <%= f.hidden_field :role_id, value: @role.id %>
 <%= f.hidden_field :assigner_id, value: current_user.id%>
 <%= f.submit "Assign Role"%>

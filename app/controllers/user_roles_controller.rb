@@ -2,8 +2,8 @@ class UserRolesController < ApplicationController
   def create
     @user_role = UserRole.create(user_role_params)
     if @user_role.save 
-        role = @user_role.role 
-        role.change_availability
+        role = Role.find(@user_role.role.id)
+        role.remove_user
         redirect_to role_path(role)
     else 
         render 'roles/show'
