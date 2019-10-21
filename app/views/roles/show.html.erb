@@ -3,6 +3,7 @@
 <th>Arrival Time</th>
 <th>Title</th>
 <th>Description</th>
+<th>Team</th>
 <th>Users</th>
 <th>Edit</th>
 <th>Delete</th>
@@ -14,9 +15,11 @@
 <td><%= @role.title %></td>
 <td><%= @role.description%><br></td>
 <td><%= link_to @role.team.name, team_path(@role.team) %></td>
+<td>
 <% @role.users.each do |u| %>
-<td><%= u.name %></td>
+<%= u.name %><br>
 <%end %>
+</td>
 <td><%= link_to "Edit Role", edit_role_path(@role)%></td>
 <td><%= button_to "Delete Role", role_path(@role), method: :delete %></td>
 <td><%=  assign_role %>

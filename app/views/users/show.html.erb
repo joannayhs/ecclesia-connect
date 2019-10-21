@@ -12,15 +12,16 @@
 <th>Delete</th>
 </tr> 
 
-<tr>
+
     <% @user.roles.each do |role| %>
+    <tr>
     <td><%= role.arrival_time.strftime("%B %d, %Y") %></td>
     <td><%= role.arrival_time.strftime("%I:%M%p") %></td>
     <td><%= link_to role.title, role_path(role) %></td>
     <td><%= link_to "Change Role", edit_user_role_path(@user,  role) %></td>
     <td><%= link_to "Confirm", edit_user_role_path(@user, role) if !role.confirmed  %></td>
     <td><%= button_to "Delete", user_role_path(@user, role), method: :delete  %></td>
+    </tr>
     <%end%>
-<tr> 
 </table> 
 

@@ -4,15 +4,20 @@ class Role < ApplicationRecord
     belongs_to :team
     validates :title, presence: true
 
-    def  self.by_team(team)
+    def self.by_team(team)
         where(team_id: team)
     end 
 
     def self.available
-        where(confirmed: false)
+        where("min_users >= ?" , 0)
     end  
     
     def self.unavailable
-        where(confirmed: true)
+        where(min_users: 0)
     end 
+
+    def change_availability 
+        self.min_users -= 1 
+    end 
+
 end
