@@ -11,7 +11,10 @@ class UserRolesController < ApplicationController
   end
 
   def destroy
-    
+    user_role = UserRole.find_by(user_id: params[:user_id], role_id: params[:format])
+    role = Role.find_by(id: user_role.role_id).add_user
+    user_role.destroy 
+    redirect_to profile_path
   end
 
   private 

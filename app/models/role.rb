@@ -20,8 +20,11 @@ class Role < ApplicationRecord
         where(min_users: 0)
     end
 
-    def change_availability 
+    def remove_user 
         self.min_users -= 1 
     end 
 
+    def add_user
+        self.min_users += 1
+    end 
 end
