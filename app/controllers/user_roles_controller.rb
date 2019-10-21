@@ -11,6 +11,7 @@ class UserRolesController < ApplicationController
   end
 
   def destroy
+    
   end
 
   private 

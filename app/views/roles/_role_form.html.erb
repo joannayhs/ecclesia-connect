@@ -26,20 +26,12 @@ Choose from below:
 <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true%><br>
 </div>
 
-Assign Users to the role:
-<div class="field">
-<%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
-</div>
-
 How many people are needed for this role?
 <div class="field">
 <%= f.number_field :min_users%>
 </div>
 
-<div class="field">
-<%= f.label :confirmed%>
-<%= f.check_box :confirmed, checked: false unless @role.confirmed %>
-</div>
+<%= assign_role if @role.available %>
 
 <%= f.submit "Submit"%>
 <%end%>

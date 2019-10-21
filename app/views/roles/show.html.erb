@@ -22,6 +22,6 @@
 </td>
 <td><%= link_to "Edit Role", edit_role_path(@role)%></td>
 <td><%= button_to "Delete Role", role_path(@role), method: :delete %></td>
-<td><%=  assign_role %>
+<td><%=  assign_role if @role.available?  %>
 </tr>
 </table>

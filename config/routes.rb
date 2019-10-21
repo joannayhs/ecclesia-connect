@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   post '/assignrole', to: 'user_roles#create'
-  delete 'unassignrole', to: 'user_roles#destroy'
   resources :teams  do 
     resources :roles, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end  
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
   resources :roles
   resources :users, except: [:new] do  
     resources :roles, only: [:index, :show, :edit, :update, :destroy]
+    delete 'unassignrole', to: 'user_roles#destroy'
   end 
 
   get '/login', to: 'session#new', as: '/login'
