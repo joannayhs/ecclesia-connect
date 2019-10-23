@@ -32,17 +32,19 @@ class UsersController < ApplicationController
 
     def update 
         @user = User.find(params[:id]) 
-        if @user.update(user_params)
+        @user.update(params.require(:user).permit(:admin))
+        if @user.save 
             redirect_to user_path(@user)
         else 
-            render 'users/show'
+            redirect_to user_path(@user)
+            flash[:alert] = "There was an error"
         end 
     end
 
     private 
     
     def user_params 
-        params.require(:user).permit(:name, :email, :password, :uid, :admin )
+        params.require(:user).permit(:name, :email, :password, :uid, :admin)
     end
  
 end

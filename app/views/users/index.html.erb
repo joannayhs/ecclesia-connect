@@ -1,6 +1,7 @@
 <% @users.each do |user| %>
 <% if current_user.admin? %>
-<%= link_to user.name, user_path(user) %><br>
+<%= link_to user.name, user_path(user) %> <%= "(Admin)" if user.admin?%>
+<br>
 <% else %>
 <%= user.name %><br>
 <%end%>

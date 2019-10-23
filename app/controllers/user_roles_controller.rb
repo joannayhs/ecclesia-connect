@@ -16,6 +16,8 @@ class UserRolesController < ApplicationController
     get_user_role  
       if @user_role && @user_role.user_id == current_user.id
         @user_role.confirmed = true 
+        @user_role.save
+        redirect_to profile_path
       else 
         redirect_to profile_path
         flash[:alert] = "Role can only be confirmed by the user."
