@@ -9,7 +9,7 @@ class Role < ApplicationRecord
     end 
 
     def available?
-        self.min_users != 0
+        self.users.count <= self.min_users
     end  
 
     def self.available 

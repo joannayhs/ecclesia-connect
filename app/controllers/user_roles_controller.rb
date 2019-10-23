@@ -2,9 +2,10 @@ class UserRolesController < ApplicationController
   def create
     @user_role = UserRole.create(user_role_params)
     if @user_role.save 
-        role = Role.find(@user_role.role.id)
+        role = Role.find(@user_role.role_id)
         role.remove_user
-        redirect_to role_path(role)
+        role.save
+        redirect_to role_path(@user_role.role_id)
     else 
         render 'roles/show'
         flash[:alert] = "There was an error"
@@ -13,19 +14,21 @@ class UserRolesController < ApplicationController
 
   def update 
     get_user_role  
-      if @user_role 
+      if @user_role && @user_role.user_id == current_user.id
         @user_role.confirmed = true 
       else 
         redirect_to profile_path
-        flash[:alert] = "Something went wrong."
+        flash[:alert] = "Role can only be confirmed by the user."
      end 
   end 
 
   def destroy
     get_user_role
-    role = Role.find_by(id: @user_role.role_id).add_user
+    role = Role.find_by(id: @user_role.role_id)
+    role.add_user
+    role.save
     @user_role.destroy 
-    redirect_to profile_path
+    redirect_to user_path(@user_role.user_id)
   end
 
   private 

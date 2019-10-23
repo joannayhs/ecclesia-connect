@@ -10,7 +10,6 @@ class SessionController < ApplicationController
         user = User.from_oauth(auth) 
         login(user)
       else 
-        flash[:danger] = "Invalid Email or Password"
         redirect_to login_path 
     end 
   end 

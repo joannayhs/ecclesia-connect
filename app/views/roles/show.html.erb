@@ -18,7 +18,7 @@
 <td><%= link_to @role.team.name, team_path(@role.team) %></td>
 <td>
 <% @role.users.each do |u| %>
-<%= u.name %><br>
+<%= link_to u.name, user_path(u) %><br>
 <%end %>
 </td>
 <td><%= @role.min_users%> users</td>

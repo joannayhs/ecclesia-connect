@@ -1,6 +1,6 @@
 
 <h1><%= @user.name %>'s Profile</h1>
-
+<%= "Admin" if @user.admin? %><br>
 <h2>Upcoming Roles:</h2> 
 <table>
 <tr>
@@ -26,4 +26,12 @@
     </tr>
     <%end%>
 </table> 
+
+<% if current_user.admin? && @user.id != current_user.id%>
+<%= form_for @user do |f| %>
+<%= f.label :admin %>
+<%= f.check_box :admin %>
+<%= f.submit "Change Status"%>
+<% end %>
+<% end %>
 
