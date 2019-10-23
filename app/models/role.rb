@@ -27,4 +27,8 @@ class Role < ApplicationRecord
     def add_user
         self.min_users += 1
     end 
+
+    def confirmed? 
+        self.confirmed 
+    end 
 end

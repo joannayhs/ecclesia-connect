@@ -9,6 +9,7 @@ Filter Roles:
 <tr>
 <th>Title</th>
 <th>Description</th>
+<th>Available?</th>
 </tr> 
 
 
@@ -16,6 +17,7 @@ Filter Roles:
 <tr>
 <td><%= link_to role.title, role_path(role.id) %></td>
 <td><%= role.description %></td>
+<td><%= role.available? ? "Available" : "Unavailable" %>
 </tr>
 <% end %>
 </table>

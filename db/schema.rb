@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2019_10_13_193415) do
     t.datetime "arrival_time"
     t.integer "team_id", null: false
     t.integer "min_users", default: 1
-    t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_10_13_193415) do
     t.integer "user_id"
     t.integer "role_id"
     t.integer "assigner_id"
+    t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

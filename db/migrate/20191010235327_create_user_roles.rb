@@ -4,6 +4,7 @@ class CreateUserRoles < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :role_id
       t.integer :assigner_id
+      t.boolean :confirmed, default: false
 
 
       t.timestamps
