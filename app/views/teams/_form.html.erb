@@ -18,12 +18,12 @@
 <%= f.text_field :description %>
 </div>
 
-Select from the roles below: 
 <div class="field">
+<p>Select from the roles below: </p>
 <%= f.collection_check_boxes :role_ids, Role.all, :id, :title %>
 </div>
 
-Or add a new role:
+<p>Or add a new role:</p>
 <%= f.fields_for :roles, @team.roles.build do |role| %>
 
 <div class="field">
@@ -41,8 +41,8 @@ Or add a new role:
 <%= role.datetime_select :arrival_time %>
 </div>
 
-How many people are needed for this role?
 <div class="field">
+<p>How many people are needed for this role?</p>
 <%= role.number_field :min_users%>
 </div>
 

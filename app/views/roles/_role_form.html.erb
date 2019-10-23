@@ -20,14 +20,14 @@
 <%= f.text_field :description %><br>
 </div>
 
-Which team does it belong to? <br>
-Choose from below:
 <div class="field">
+<p>Which team does it belong to?  <br>
+Choose from below:</p>
 <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true%><br>
 </div>
 
-How many people are needed for this role?
 <div class="field">
+<p>How many people are needed for this role?</p>
 <%= f.number_field :min_users%>
 </div>
 

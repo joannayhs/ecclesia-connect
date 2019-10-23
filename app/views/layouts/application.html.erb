@@ -11,11 +11,16 @@
 
   <body>
     <header>
+      <img src="https://i.imgur.com/Pr9Pww2.png" height= 10% width= 10%>
       <%= navbar %>
+      <div class="error_messages">
       <% flash.each do |key, value| %>
       <%= value %>
       <% end %>
+      </div>
     </header>
+    <div class="main">
     <%= yield %>
+    </div>
   </body>
 </html>

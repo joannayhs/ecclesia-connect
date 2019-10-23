@@ -22,7 +22,58 @@
      color: red;
  }
 
+ div.error_messages {
+     color:  red;
+ }
+
+ div.main {
+     border: 2px solid white;
+     padding: 10px;
+ }
+
 body {
     font-family: helvetica; 
     text-align: center;
+    background-color: black;
+}
+
+table, th, td{
+    border-collapse: collapse;
+    text-align: center;
+    border: 3px solid white;
+    padding: 5px;
+    
+}
+
+table{
+    width: 100%
+}
+
+th {
+    color: white;
+}
+
+td {
+    color: white;
+}
+
+a:link, a:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border:  1px solid white;
+    padding: 3px;
+}
+
+a:hover, a:active {
+    background-color: white;
+    color: black;
+}
+
+h1, h2, p, li{
+    color: white;
+}
+
+form {
+    color: white;
 }

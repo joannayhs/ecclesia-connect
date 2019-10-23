@@ -6,7 +6,7 @@
 <h2>Sign Up with email:</h2>
 <%= form_for @user do |f| %>
 <% if @user.errors.any? %>
-<div class="danger">
+<div class="error_messages">
 <% @user.errors.full_messages.each do |m| %>
 <%= m %><br>
 <% end %>

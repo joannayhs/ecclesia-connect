@@ -1,10 +1,12 @@
-Filter Roles: 
+<div class="filter">
+<h2>Filter Roles: </h2>
 <%= form_tag('/roles', method: 'get')  do %>
 <%= select_tag "Team",  options_from_collection_for_select(@teams, "id", "name"), include_blank: true%>
 <%= select_tag "Availability", options_for_select(["Filled Roles", "Open Roles"]), include_blank: true %>
 <%= submit_tag "Filter Roles" %>
 <%end%>
-
+</div>
+<br>
 <table>
 <tr>
 <th>Arrival Time</th>

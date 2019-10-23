@@ -1,8 +1,10 @@
 
 <% if current_user.admin? %>
 <%= render 'role_form'%>
-<%else  %>
+<% else  %>
+<div class="error_messages">
 <%= "Sorry, Admin Only" %><br>
+</div>
 <%= link_to "View Roles",  roles_path %>
 <%end  %>
 
