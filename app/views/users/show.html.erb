@@ -7,7 +7,7 @@
 <th>Date</th>
 <th>Arrival Time</th>
 <th>Role</th> 
-<th>Edit</th>
+<th>Confirmed?</th>
 <th>Delete</th>
 </tr> 
 
@@ -17,7 +17,7 @@
     <td><%= role.arrival_time.strftime("%B %d, %Y") %></td>
     <td><%= role.arrival_time.strftime("%I:%M%p") %></td>
     <td><%= link_to role.title, user_role_path(@user, role) %></td>
-    <td><%= link_to "Change Role", edit_user_role_path(@user,  role) %></td>
+    <td><%=  %></td>
     <td><%= button_to "Delete", user_unassignrole_path(@user, role) , method: :delete  %></td>
     </tr>
     <%end%>
