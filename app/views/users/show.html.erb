@@ -17,7 +17,11 @@
     <td><%= role.arrival_time.strftime("%B %d, %Y") %></td>
     <td><%= role.arrival_time.strftime("%I:%M%p") %></td>
     <td><%= link_to role.title, user_role_path(@user, role) %></td>
-    <td><%=  %></td>
+    <% if UserRole.find_by(user_id: @user, role_id: role).confirmed %>
+    <td><%= "Yes" %></td>
+    <% else %>
+    <td><%= button_to "Confirm Role", user_confirmrole_path(@user, role), method: :patch %></td>
+    <% end%>
     <td><%= button_to "Delete", user_unassignrole_path(@user, role) , method: :delete  %></td>
     </tr>
     <%end%>

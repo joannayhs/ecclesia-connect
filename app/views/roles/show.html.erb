@@ -7,12 +7,12 @@
 <th>Assigned Users</th>
 <th>Users Needed</th>
 <th><%= "Edit" if current_user.admin? %></th>
-<th>Delete</th>
+<th><%= "Delete" if current_user.admin? %></th>
 <th>Assign Role</th>
 </tr>
 
 <tr>
-<td><%= @role.arrival_time %></td>
+<td><%= @role.arrival_time.strftime("%B %d, %Y at %I:%M%p") %></td>
 <td><%= @role.title %></td>
 <td><%= @role.description%><br></td>
 <td><%= link_to @role.team.name, team_path(@role.team) %></td>
@@ -23,7 +23,7 @@
 </td>
 <td><%= @role.min_users%> users</td>
 <td><%= link_to "Edit Role", edit_role_path(@role) if current_user.admin? %></td>
-<td><%= button_to "Delete Role", role_path(@role), method: :delete %></td>
+<td><%= button_to "Delete Role", role_path(@role), method: :delete if current_user.admin? %></td>
 <td><%=  assign_role if @role.available?  %>
 </tr>
 </table>

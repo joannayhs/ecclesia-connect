@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new] do  
     resources :roles, only: [:index, :show, :edit, :update, :destroy]
     delete 'unassignrole', to: 'user_roles#destroy'
+    patch '/confirmrole', to: 'user_roles#update', as: '/confirmrole'
   end 
 
   get '/login', to: 'session#new', as: '/login'

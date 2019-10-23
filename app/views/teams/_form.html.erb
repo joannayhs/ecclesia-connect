@@ -40,6 +40,12 @@ Or add a new role:
 <%= role.label :arrival_time %>
 <%= role.datetime_select :arrival_time %>
 </div>
+
+How many people are needed for this role?
+<div class="field">
+<%= role.number_field :min_users%>
+</div>
+
 <% end %>
 
 

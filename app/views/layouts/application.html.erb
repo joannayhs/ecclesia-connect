@@ -12,6 +12,9 @@
   <body>
     <header>
       <%= navbar %>
+      <% flash.each do |key, value| %>
+      <%= value %>
+      <% end %>
     </header>
     <%= yield %>
   </body>

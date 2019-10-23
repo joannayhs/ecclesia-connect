@@ -44,7 +44,7 @@ class TeamsController < ApplicationController
     private 
     
     def team_params 
-        params.require(:team).permit(:name, :description, role_ids:[], roles_attributes: [:title, :description, :arrival_time])
+        params.require(:team).permit(:name, :description, role_ids:[], roles_attributes: [:title, :description, :arrival_time, :min_users])
     end 
 
     def get_team 

@@ -5,9 +5,11 @@
 <th>Team Description</th>
 <th>Team Roles</th>
 <th>Team Members</th>
+<% if current_user.admin? %>
 <th>Add Role to Team</th>
 <th>Edit Team</th>
 <th>Delete Team</th>
+<% end %>
 </tr>
 
 <tr>
@@ -27,9 +29,10 @@
 </ul>
 <%end%>
 </td>
-
+<% if current_user.admin? %>
 <td><%= link_to "Add Role", new_team_role_path(@team)%></td>
 <td><%= link_to "Edit",  edit_team_path(@team) %></td>
 <td><%= button_to "Delete Team", team_path(@team), method: :delete %></td>
+<% end %>
 </tr>
 </table>

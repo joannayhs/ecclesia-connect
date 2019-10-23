@@ -6,13 +6,4 @@ module RolesHelper
         end 
     end 
 
-    def confirm 
-        if current_user.id == params[:id]
-            if @role.confirmed?
-                "Yes" 
-            else 
-                render 'roles/confirm_role'
-            end
-        end
-    end 
 end
