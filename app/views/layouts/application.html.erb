@@ -11,7 +11,6 @@
 
   <body>
     <header>
-      <img src="https://i.imgur.com/Pr9Pww2.png" height= 10% width= 10%>
       <%= navbar %>
       <div class="error_messages">
       <% flash.each do |key, value| %>
@@ -22,5 +21,8 @@
     <div class="main">
     <%= yield %>
     </div>
+    <footer>
+      <img src="https://i.imgur.com/Pr9Pww2.png" height= 10% width= 10%>
+    </footer>
   </body>
 </html>

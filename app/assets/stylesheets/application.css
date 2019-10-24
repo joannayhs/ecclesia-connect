@@ -30,6 +30,9 @@
      border: 2px solid white;
      padding: 10px;
      height: 450px;
+     width: 90%;
+     margin-left: auto;
+     margin-right: auto;
  }
 
 body {
