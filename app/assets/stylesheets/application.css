@@ -29,12 +29,15 @@
  div.main {
      border: 2px solid white;
      padding: 10px;
+     height: 450px;
  }
 
 body {
     font-family: helvetica; 
     text-align: center;
     background-color: black;
+    border: 1px solid white;
+    padding: 10px;
 }
 
 table, th, td{
@@ -51,6 +54,7 @@ table{
 
 th {
     color: white;
+    font-size: 20px;
 }
 
 td {
@@ -59,10 +63,11 @@ td {
 
 a:link, a:visited {
     display: inline-block;
+    border-radius: 5px;
     text-decoration: none;
     color: white;
     border:  1px solid white;
-    padding: 3px;
+    padding: 5px;
 }
 
 a:hover, a:active {

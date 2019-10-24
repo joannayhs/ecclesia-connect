@@ -1,11 +1,13 @@
 <% @users.each do |user| %>
 <% if current_user.admin? %>
-<ul>
-<li><%= link_to user.name, user_path(user) %> <%= "(Admin)" if user.admin?%></li>
-</ul>
+<p>
+<%= link_to user.name, user_path(user) %> <%= "*" if user.admin?%><br>
+</p>
 <% else %>
-<ul>
-<li><%= user.name %></li>
-</ul>
+<p>
+<%= user.name %><br>
+</p>
 <%end%>
 <%end%>
+<br>
+<p>* indicates admin </p>
