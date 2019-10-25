@@ -41,6 +41,7 @@ body {
     background-color: black;
     border: 1px solid white;
     padding: 10px;
+    margin: 50px;
 }
 
 table, th, td{
@@ -84,4 +85,8 @@ h1, h2, p, li{
 
 form {
     color: white;
+}
+
+div.center  {
+    padding: 150px;
 }
