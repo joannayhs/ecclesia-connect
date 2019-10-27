@@ -5,7 +5,8 @@
 <tr>
 <th>Date</th>
 <th>Arrival Time</th>
-<th>Role</th> 
+<th>Role</th>
+<th>Assigned By: </th>
 <th>Confirmed?</th>
 <th>Delete</th>
 </tr> 
@@ -16,6 +17,7 @@
     <td><%= role.arrival_time.strftime("%B %d, %Y") %></td>
     <td><%= role.arrival_time.strftime("%I:%M%p") %></td>
     <td><%= link_to role.title, user_role_path(@user, role) %></td>
+    <td><%= UserRole.find_by(user_id: @user, role_id: role).assigner.name%></td>
     <% if UserRole.find_by(user_id: @user, role_id: role).confirmed %>
     <td><%= "Yes" %></td>
     <% else %>
@@ -26,7 +28,6 @@
     <%end%>
 </table> 
 
-<p>* indicates admin</p><br>
 <br>
 
 <% if current_user.admin? && @user != current_user%>

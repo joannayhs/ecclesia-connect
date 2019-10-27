@@ -1,0 +1,8 @@
+<% if current_user.admin? %>
+<p>
+<%= link_to user.name, user_path(user) %> <%= "*" if user.admin?%><br>
+</p>
+<% else %>
+<p>
+<%= user.name %> <%= "*" if user.admin?%>
+<%end%>

@@ -29,8 +29,8 @@
  div.main {
      border: 2px solid white;
      padding: 10px;
-     height: 450px;
-     width: 90%;
+     height: auto;
+     width: auto;
      margin-left: auto;
      margin-right: auto;
  }
@@ -63,6 +63,7 @@ th {
 
 td {
     color: white;
+    padding: 10px;
 }
 
 a:link, a:visited {

@@ -23,10 +23,8 @@
 <%end%>
 </td>
 <td>
-<% @team.users.each do |user| %>
-<ul>
-<li><%= link_to user.name, profile_path(user) %></li>
-</ul>
+<% @team.users.uniq.each do |user| %>
+<%= render partial: 'users/link_to', locals: {user: user} %>
 <%end%>
 </td>
 <% if current_user.admin? %>
