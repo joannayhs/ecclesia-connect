@@ -4,9 +4,11 @@ class Role < ApplicationRecord
     belongs_to :team
     validates :title, presence: true
 
-    def self.by_team(team)
-        where(team_id: team)
-    end 
+    # def self.by_team(team)
+    #     where(team_id: team)
+    # end 
+
+    scope :by_team, ->(team) {where(team_id: team)}
 
     def available?
         self.users.count <= self.min_users

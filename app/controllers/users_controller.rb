@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  
+    before_action :get_user, only: [:show, :update]
+
     def index 
         @users = User.all
     end 
@@ -24,14 +25,13 @@ class UsersController < ApplicationController
 
     def show 
         if current_user.admin?
-            @user = User.find_by(id: params[:id])
+            render :show
         else 
             redirect_to profile_path(current_user), alert: "Unauthorized to see this page"
         end 
     end 
 
     def update 
-        @user = User.find(params[:id]) 
         @user.update(params.require(:user).permit(:admin))
         if @user.save 
             redirect_to user_path(@user)
@@ -46,5 +46,9 @@ class UsersController < ApplicationController
     def user_params 
         params.require(:user).permit(:name, :email, :password, :uid, :admin)
     end
+
+    def get_user
+        @user = User.find(params[:id])
+    end 
  
 end
